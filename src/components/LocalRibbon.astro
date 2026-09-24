@@ -1,0 +1,8 @@
+---
+const places = ['Marysville', 'Union County', 'Dublin', 'Columbus', 'Central Ohio'];
+---
+<div class="ribbon" aria-label="Service area">
+  <div class="ribbon__track">
+    {[...places, ...places].map((place) => <span><i></i>{place}</span>)}
+  </div>
+</div>

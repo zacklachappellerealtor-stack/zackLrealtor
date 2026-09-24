@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+<Layout title="Contact Zack LaChappelle | Central Ohio Real Estate" description="Start a conversation with Zack LaChappelle about buying or selling a home in Central Ohio.">
+  <section class="page-hero">
+    <div class="container page-hero__grid">
+      <div><p class="eyebrow eyebrow--light">Start a conversation</p><h1>Tell Zack what you are considering.</h1></div>
+      <p>No polished plan required. Share where you are, what you are thinking about, and the best way to reach you.</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="container contact-layout">
+      <aside class="contact-details reveal">
+        <p class="eyebrow">Ready when you are</p>
+        <h2>A useful first conversation starts with your questions.</h2>
+        <p>Zack will follow up to learn more and help identify a practical next step. There is no pressure to be further along than you are.</p>
+        <div class="contact-service"><strong>Service area</strong><span>Marysville, Union County, and Central Ohio</span></div>
+        <div class="contact-service"><strong>Brokerage</strong><span>Red 1 Realty</span></div>
+        <div class="contact-service"><strong>Call or text Zack</strong><a class="contact-phone" href="tel:+16149748720">614 974 8720</a></div>
+      </aside>
+      <div class="contact-form reveal"><LeadForm idPrefix="contact-lead" /></div>
+    </div>
+  </section>
+</Layout>

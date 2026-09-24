@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/red-one-logo-footer.png';
+import ArrowIcon from '../components/ArrowIcon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/buy/', label: 'Buy' },
+  { href: '/sell/', label: 'Sell' },
+  { href: '/about/', label: 'About' },
+];
+const active = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171414" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="Zack LaChappelle home">
+        <span class="brand__mark" aria-hidden="true"><b>ZL</b></span>
+        <span class="brand__name"><strong>Zack LaChappelle</strong><small>REALTOR® · Red 1 Realty</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        {nav.map((item) => <a href={item.href} aria-current={active(item.href) ? 'page' : undefined}>{item.label}</a>)}
+        <a class="nav-cta" href="/contact/">Let's talk <ArrowIcon size={16} /></a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div class="site-footer__brand">
+          <span class="brand__mark brand__mark--light" aria-hidden="true"><b>ZL</b></span>
+          <h2>Home decisions,<br />made human.</h2>
+        </div>
+        <div>
+          <p class="footer-label">Explore</p>
+          <a href="/buy/">Buying</a><a href="/sell/">Selling</a><a href="/about/">About Zack</a>
+        </div>
+        <div>
+          <p class="footer-label">Service area</p>
+          <p>Marysville<br />Union County<br />Central Ohio</p>
+        </div>
+        <div>
+          <p class="footer-label">Ready when you are</p>
+          <a class="footer-talk" href="/contact/">Start a conversation <ArrowIcon /></a>
+          <a class="footer-phone" href="tel:+16149748720">614 974 8720</a>
+        </div>
+      </div>
+      <div class="container site-footer__bottom">
+        <Image class="site-footer__logo" src={logo} width={220} alt="Red 1 Realty" />
+        <p>© {new Date().getFullYear()} Zack LaChappelle. Equal Housing Opportunity.</p>
+      </div>
+    </footer>
+    <script>
+      const menu = document.querySelector('.menu-button');
+      const nav = document.querySelector('.main-nav');
+      menu?.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') === 'true';
+        menu.setAttribute('aria-expanded', String(!open));
+        menu.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+        nav?.classList.toggle('is-open', !open);
+        document.body.classList.toggle('menu-open', !open);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.13 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      const header = document.querySelector('[data-header]');
+      const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
+      onScroll();
+      addEventListener('scroll', onScroll, { passive: true });
+    </script>
+  </body>
+</html>

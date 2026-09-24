@@ -1,0 +1,99 @@
+---
+interface Props {
+  idPrefix?: string;
+  compact?: boolean;
+}
+
+const { idPrefix = 'lead', compact = false } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_LEAD_FORM_ENDPOINT ?? '';
+---
+<form class:list={['lead-form', { 'lead-form--compact': compact }]} data-lead-form data-endpoint={endpoint}>
+  <div class="lead-form__grid">
+    <div class="field">
+      <label for={`${idPrefix}-name`}>Your name</label>
+      <input id={`${idPrefix}-name`} name="name" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for={`${idPrefix}-email`}>Email address</label>
+      <input id={`${idPrefix}-email`} name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field">
+      <label for={`${idPrefix}-phone`}>Phone number</label>
+      <input id={`${idPrefix}-phone`} name="phone" type="tel" autocomplete="tel" required />
+    </div>
+    <div class="field">
+      <label for={`${idPrefix}-interest`}>I am interested in</label>
+      <select id={`${idPrefix}-interest`} name="interest" required>
+        <option value="">Choose one</option>
+        <option>Buying a home</option>
+        <option>Selling a home</option>
+        <option>Both buying and selling</option>
+        <option>Investing or relocating</option>
+        <option>General guidance</option>
+      </select>
+    </div>
+  </div>
+  {!compact && (
+    <div class="field">
+      <label for={`${idPrefix}-message`}>What should Zack know?</label>
+      <textarea id={`${idPrefix}-message`} name="message" placeholder="A few details about your goals, timing, or questions"></textarea>
+    </div>
+  )}
+  <div class="field field--honeypot" aria-hidden="true">
+    <label for={`${idPrefix}-company`}>Company</label>
+    <input id={`${idPrefix}-company`} name="company" tabindex="-1" autocomplete="off" />
+  </div>
+  <div class="form-status" role="status" aria-live="polite"></div>
+  <div class="lead-form__footer">
+    <button class="button" type="submit">Request a call</button>
+    <p class="form-note">Prefer to call? <a href="tel:+16149748720">614 974 8720</a></p>
+  </div>
+</form>
+
+<script>
+  document.querySelectorAll('[data-lead-form]').forEach((node) => {
+    if (!(node instanceof HTMLFormElement) || node.dataset.ready === 'true') return;
+    node.dataset.ready = 'true';
+    node.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!node.reportValidity()) return;
+
+      const status = node.querySelector('.form-status');
+      const button = node.querySelector('button[type="submit"]');
+      const honeypot = node.querySelector('input[name="company"]');
+      if (honeypot instanceof HTMLInputElement && honeypot.value) return;
+      if (!(status instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+
+      const endpoint = node.dataset.endpoint;
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.className = 'form-status';
+
+      if (!endpoint) {
+        status.textContent = 'The form is ready. Connect an inbox or CRM endpoint to receive live inquiries.';
+        status.classList.add('is-visible');
+        button.disabled = false;
+        button.textContent = 'Request a call';
+        return;
+      }
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(node),
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        node.reset();
+        status.textContent = 'Thanks. Zack will be in touch soon.';
+        status.classList.add('is-visible', 'is-success');
+      } catch {
+        status.textContent = 'Something went wrong. Please call Zack at 614 974 8720.';
+        status.classList.add('is-visible', 'is-error');
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Request a call';
+      }
+    });
+  });
+</script>

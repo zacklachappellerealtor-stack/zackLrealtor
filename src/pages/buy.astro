@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Process from '../components/Process.astro';
+import CTA from '../components/CTA.astro';
+const steps = [
+  { number: '01', title: 'Set the direction', text: 'Talk through timing, financing, priorities, and the tradeoffs that matter before the search begins.' },
+  { number: '02', title: 'Read the market', text: 'Compare neighborhoods, recent sales, and real-time opportunities with local context around every option.' },
+  { number: '03', title: 'Tour with purpose', text: 'Look beyond the listing photos and evaluate condition, value, location, and long-term fit.' },
+  { number: '04', title: 'Write a smart offer', text: 'Build terms around the property and your goals, then negotiate with the full picture in view.' },
+  { number: '05', title: 'Close with clarity', text: 'Stay organized through inspections, appraisal, paperwork, and the final walk-through.' },
+];
+---
+<Layout title="Buy a Home in Central Ohio | Zack LaChappelle" description="A practical, informed home buying process for Marysville, Union County, and Central Ohio buyers.">
+  <section class="page-hero">
+    <div class="container page-hero__grid">
+      <div><p class="eyebrow eyebrow--light">For buyers</p><h1>Find the right home, not just the next one.</h1></div>
+      <p>Good buying decisions start before the first showing. Zack helps you understand the market, weigh the tradeoffs, and move when the fit is right.</p>
+    </div>
+  </section>
+  <section class="page-section page-section--white">
+    <div class="container section-grid">
+      <div class="feature-image reveal"><img src="/1920.webp" width="1920" height="1080" alt="Modern Central Ohio home with a welcoming front porch" /><p class="feature-image__caption">A search shaped around your life, not just a list of filters.</p></div>
+      <div>
+        <p class="eyebrow">The buying process</p>
+        <h2 class="section-title">A clear step at every turn.</h2>
+        <Process steps={steps} />
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="container reveal">
+      <p class="eyebrow">What you can expect</p>
+      <h2 class="section-title">Advice that stays useful when the market gets noisy.</h2>
+      <div class="principles">
+        <div class="principle"><h3>Local context</h3><p>Understand how value changes from one street, township, and school district to the next.</p></div>
+        <div class="principle"><h3>Responsive guidance</h3><p>Get direct answers when timing matters, without pressure to move before you are ready.</p></div>
+        <div class="principle"><h3>Thoughtful advocacy</h3><p>Make decisions with the facts, the risks, and your long-term goals clearly in view.</p></div>
+      </div>
+    </div>
+  </section>
+  <CTA eyebrow="Begin your home search" title="Know your next step before the first showing." text="Share what you are looking for and where you are in the process. Zack will help you map the path forward." button="Talk about buying" />
+</Layout>

@@ -1,0 +1,27 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+  button?: string;
+}
+const {
+  eyebrow = 'Start with a conversation',
+  title = 'Your next move deserves a clear plan.',
+  text = 'Tell Zack what you are considering. You will get straight answers, local context, and a practical next step.',
+  button = 'Talk with Zack',
+} = Astro.props;
+---
+<section class="cta-band">
+  <div class="container cta-band__inner reveal">
+    <div>
+      <p class="eyebrow eyebrow--light">{eyebrow}</p>
+      <h2>{title}</h2>
+    </div>
+    <div class="cta-band__action">
+      <p>{text}</p>
+      <a class="button button--light" href="/contact/">{button}<ArrowIcon /></a>
+    </div>
+  </div>
+</section>
