@@ -35,7 +35,7 @@ const endpoint = import.meta.env.PUBLIC_LEAD_FORM_ENDPOINT ?? '';
   </div>
   {!compact && (
     <div class="field">
-      <label for={`${idPrefix}-message`}>What should Zack know?</label>
+      <label for={`${idPrefix}-message`}>What should I know?</label>
       <textarea id={`${idPrefix}-message`} name="message" placeholder="A few details about your goals, timing, or questions"></textarea>
     </div>
   )}
@@ -85,10 +85,10 @@ const endpoint = import.meta.env.PUBLIC_LEAD_FORM_ENDPOINT ?? '';
         });
         if (!response.ok) throw new Error('Submission failed');
         node.reset();
-        status.textContent = 'Thanks. Zack will be in touch soon.';
+        status.textContent = 'Thanks! I will be in touch soon.';
         status.classList.add('is-visible', 'is-success');
       } catch {
-        status.textContent = 'Something went wrong. Please call Zack at 614 974 8720.';
+        status.textContent = 'Something went wrong. Please call me at 614 974 8720.';
         status.classList.add('is-visible', 'is-error');
       } finally {
         button.disabled = false;

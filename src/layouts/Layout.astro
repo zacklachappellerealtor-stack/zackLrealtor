@@ -35,7 +35,7 @@ const active = (href: string) => href === '/' ? path === '/' : path.startsWith(h
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="Zack LaChappelle home">
-        <span class="brand__mark" aria-hidden="true"><b>ZL</b></span>
+        <Image class="brand__logo" src={logo} width={140} alt="Red 1 Realty" />
         <span class="brand__name"><strong>Zack LaChappelle</strong><small>REALTOR® · Red 1 Realty</small></span>
       </a>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
@@ -55,7 +55,7 @@ const active = (href: string) => href === '/' ? path === '/' : path.startsWith(h
         </div>
         <div>
           <p class="footer-label">Explore</p>
-          <a href="/buy/">Buying</a><a href="/sell/">Selling</a><a href="/about/">About Zack</a>
+          <a href="/buy/">Buying</a><a href="/sell/">Selling</a><a href="/about/">About Me</a>
         </div>
         <div>
           <p class="footer-label">Service area</p>
@@ -64,7 +64,8 @@ const active = (href: string) => href === '/' ? path === '/' : path.startsWith(h
         <div>
           <p class="footer-label">Ready when you are</p>
           <a class="footer-talk" href="/contact/">Start a conversation <ArrowIcon /></a>
-          <a class="footer-phone" href="tel:+16149748720">614 974 8720</a>
+          <a class="footer-contact" href="tel:+16149748720"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 614 974 8720</a>
+          <a class="footer-contact" href="mailto:Zack.lachappelle.realtor@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Zack.lachappelle.realtor@gmail.com</a>
         </div>
       </div>
       <div class="container site-footer__bottom">

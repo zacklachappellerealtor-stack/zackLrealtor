@@ -1,12 +1,12 @@
 ---
-interface Step { number: string; title: string; text: string; }
+interface Step { number?: string; title: string; text: string; }
 interface Props { steps: Step[]; }
 const { steps } = Astro.props;
 ---
 <ol class="process-list">
   {steps.map((step) => (
-    <li class="process-list__item reveal">
-      <span>{step.number}</span>
+    <li class={`process-list__item reveal${step.number ? '' : ' process-list__item--no-number'}`}>
+      {step.number && <span>{step.number}</span>}
       <div><h3>{step.title}</h3><p>{step.text}</p></div>
     </li>
   ))}
