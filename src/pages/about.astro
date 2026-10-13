@@ -3,9 +3,11 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
 import portrait from '../assets/zack-jacket.jpg';
+import heroBackdrop from '../assets/hero-about-close.jpg';
 ---
 <Layout title="About Zack LaChappelle | Central Ohio REALTOR®" description="Meet Zack LaChappelle, a Red 1 Realty REALTOR serving Marysville, Union County, and Central Ohio.">
   <section class="page-hero">
+    <div class="page-hero__backdrop page-hero__backdrop--portrait" aria-hidden="true"><Image src={heroBackdrop} alt="" loading="eager" /></div>
     <div class="container page-hero__grid">
       <div><p class="eyebrow eyebrow--light">About Me</p><h1>Your Local Realtor. Your Goals Come First.</h1></div>
       <p>Real estate is about more than contracts and numbers—it’s about people, families, and what comes next. I organize and analyze the details while keeping what matters most to you at the center of every decision.</p>

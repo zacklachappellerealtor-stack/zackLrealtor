@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Process from '../components/Process.astro';
 import CTA from '../components/CTA.astro';
+import heroBackdrop from '../assets/hero-sold-sign.png';
 const steps = [
   { title: 'Pricing with confidence', text: 'I will research recent comparable sales, active competition, and buyer behaviors to establish a credible range.' },
   { title: 'Preparing with purpose', text: "Identifying the updates and finishing touches that can enhance your home’s presentation, highlight its value, and make a lasting impression on buyers." },
@@ -11,6 +13,7 @@ const steps = [
 ---
 <Layout title="Sell Your Central Ohio Home | Zack LaChappelle" description="Thoughtful pricing, preparation, and representation for home sellers in Marysville, Union County, and Central Ohio.">
   <section class="page-hero">
+    <div class="page-hero__backdrop page-hero__backdrop--right" aria-hidden="true"><Image src={heroBackdrop} alt="" loading="eager" /></div>
     <div class="container page-hero__grid">
       <div><p class="eyebrow eyebrow--light">For sellers</p><h1>Bring your home to market with a plan.</h1></div>
       <p>A successful home sale begins with the right approach. I combine strategic pricing, thoughtful preparation, effective marketing, and strong negotiation to help you get the most from your sale.</p>
