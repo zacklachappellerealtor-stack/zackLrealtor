@@ -12,7 +12,7 @@ import portrait from '../assets/zack-seated.jpg';
 ---
 <Layout title="Zack LaChappelle | Central Ohio REALTOR®" description="Straightforward real estate guidance for buyers and sellers in Marysville, Union County, and Central Ohio.">
   <section class="home-hero">
-    <div class="home-hero__media"><Image src={hero} alt="Central Ohio skyline, farmland, Bridge Park, and a neighborhood" loading="eager" /></div>
+    <div class="home-hero__media"><Image src={hero} alt="Central Ohio skyline, farmland, Bridge Park, and a neighborhood" loading="eager" widths={[640, 1024, 1600, 2000]} sizes="100vw" /></div>
     <div class="container home-hero__content">
       <p class="eyebrow eyebrow--light">Serving all of Central Ohio</p>
       <h1>Your next move starts <span>here.</span></h1>
@@ -63,8 +63,8 @@ import portrait from '../assets/zack-seated.jpg';
   <section class="local-story">
     <div class="container local-story__grid">
       <div class="local-story__collage reveal">
-        <Image src={farm} alt="Farmland at sunset in Central Ohio" />
-        <Image src={bridge} alt="Bridge Park in Dublin, Ohio" />
+        <Image src={farm} alt="Farmland at sunset in Central Ohio" widths={[280, 480, 640]} sizes="(max-width: 900px) 50vw, 22vw" loading="lazy" />
+        <Image src={bridge} alt="Bridge Park in Dublin, Ohio" widths={[280, 480, 640]} sizes="(max-width: 900px) 50vw, 22vw" loading="lazy" />
       </div>
       <div class="reveal">
         <p class="eyebrow eyebrow--light">Local means more than a map pin</p>
@@ -82,7 +82,7 @@ import portrait from '../assets/zack-seated.jpg';
         <p class="trust__quote">“You should never have to wonder what happens next.”</p>
         <p class="lede">Expect honest communication, close attention to detail, and an advocate who stays accessible from the first conversation through closing.</p>
       </div>
-      <div class="trust__image reveal"><Image src={portrait} alt="Zack LaChappelle seated outdoors" /></div>
+      <div class="trust__image reveal"><Image src={portrait} alt="Zack LaChappelle seated outdoors" widths={[480, 768, 1024]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" /></div>
     </div>
   </section>
 
