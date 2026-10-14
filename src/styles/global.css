@@ -139,6 +139,7 @@ p { max-width: 68ch; }
 .cta-band__action .button { margin-top: 1rem; }
 
 .page-hero { padding: 180px 0 clamp(5rem, 10vw, 8rem); background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+.page-hero--tall { padding-top: clamp(240px, 32vw, 360px); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
 .page-hero::after { content: ''; position: absolute; width: min(42vw, 650px); aspect-ratio: 1; border: 1px solid oklch(0.46 0.02 30); border-radius: 50%; right: -10%; bottom: -60%; box-shadow: 0 0 0 80px color-mix(in oklch, var(--red) 14%, transparent), 0 0 0 160px color-mix(in oklch, var(--red) 8%, transparent); z-index: 1; }
 .page-hero__backdrop { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .page-hero__backdrop img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.55; filter: contrast(104%); }
