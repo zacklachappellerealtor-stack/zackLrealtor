@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Process from '../components/Process.astro';
 import CTA from '../components/CTA.astro';
 import heroBackdrop from '../assets/hero-kitchen-discussion.png';
+import buyFeature from '../assets/buy-feature.webp';
 const steps = [
   { title: 'Set the direction', text: 'Discuss timing, financing, and your top priorities before the search begins.' },
   { title: 'Tour with purpose', text: "Let’s take a deeper dive. Looking beyond the photos, we will evaluate home condition, needs vs. wants analysis, associated values, location, and overall best fit." },
@@ -13,7 +14,7 @@ const steps = [
 ---
 <Layout title="Buy a Home in Central Ohio | Zack LaChappelle" description="A practical, informed home buying process for Marysville, Union County, and Central Ohio buyers.">
   <section class="page-hero">
-    <div class="page-hero__backdrop" aria-hidden="true"><Image src={heroBackdrop} alt="" loading="eager" /></div>
+    <div class="page-hero__backdrop" aria-hidden="true"><Image src={heroBackdrop} alt="" loading="eager" widths={[640, 1024, 1600]} sizes="100vw" /></div>
     <div class="container page-hero__grid">
       <div><p class="eyebrow eyebrow--light">For buyers</p><h1>Find the right home, not just the next one.</h1></div>
       <p>A confident home purchase starts before your first showing. Understanding the market, your financing options, space needs, and timeline will help you make informed decisions and be ready when the right home comes along.</p>
@@ -21,7 +22,7 @@ const steps = [
   </section>
   <section class="page-section page-section--white">
     <div class="container section-grid section-grid--sticky">
-      <div class="feature-image reveal"><img src="/1920.webp" width="1920" height="1080" alt="Modern Central Ohio home with a welcoming front porch" /><p class="feature-image__caption">A search shaped around your life, not just a list of filters.</p></div>
+      <div class="feature-image reveal"><Image src={buyFeature} alt="Modern Central Ohio home with a welcoming front porch" widths={[480, 768, 1024, 1280]} sizes="(max-width: 900px) 100vw, 44vw" loading="lazy" /><p class="feature-image__caption">A search shaped around your life, not just a list of filters.</p></div>
       <div>
         <p class="eyebrow">The buying process</p>
         <h2 class="section-title">A clear step at every turn.</h2>
