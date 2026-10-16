@@ -53,8 +53,8 @@ p { max-width: 68ch; }
 .brand__mark { display: grid; place-items: center; width: 42px; height: 42px; background: var(--red); color: var(--white); clip-path: polygon(0 0, 100% 0, 100% 74%, 74% 100%, 0 100%); }
 .brand__mark b { font: 700 .9rem/1 var(--font-display); letter-spacing: -.05em; }
 .brand__name { display: grid; line-height: 1.05; }
-.brand__name strong { font: 650 1rem/1.1 var(--font-display); letter-spacing: -.02em; }
-.brand__name small { margin-top: .3rem; font-size: .64rem; letter-spacing: .11em; text-transform: uppercase; opacity: .72; }
+.brand__name strong { font: 650 1.3rem/1.1 var(--font-display); letter-spacing: -.02em; }
+.brand__name small { margin-top: .35rem; font-size: .72rem; letter-spacing: .11em; text-transform: uppercase; opacity: .78; }
 .main-nav { position: absolute; left: 50%; display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 2.25rem); font-size: .92rem; font-weight: 600; transform: translateX(-50%); transition: left .45s var(--ease), transform .45s var(--ease); }
 .site-header.is-scrolled .main-nav { left: calc(100% - var(--header-gutter)); transform: translateX(-100%); }
 .main-nav > a:not(.nav-cta) { position: relative; padding: .6rem 0; }
