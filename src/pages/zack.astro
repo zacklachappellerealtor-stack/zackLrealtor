@@ -1,0 +1,209 @@
+---
+import CardLayout from '../layouts/CardLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/zack-portrait.webp';
+import wordmark from '../assets/zack-wordmark.webp';
+import logo from '../assets/red-one-logo-footer.png';
+
+const phone = '+16149748720';
+const email = 'Zack.lachappelle.realtor@gmail.com';
+const instagram = 'https://www.instagram.com/zlachappelle_realtor/';
+const facebook = 'https://www.facebook.com/people/Zack-LaChappelle-Realtor/61592632085842/';
+const website = '/';
+const year = new Date().getFullYear();
+---
+<CardLayout
+  title="Zack LaChappelle — REALTOR® · Red 1 Realty"
+  description="Save Zack LaChappelle's contact. Realtor serving Marysville, Union County, and Central Ohio."
+>
+  <h1 class="zc-wordmark">
+    <Image
+      src={wordmark}
+      alt="Zack LaChappelle — Real Estate Agent, Central Ohio. Your next move starts here."
+      widths={[400, 640, 900]}
+      sizes="(max-width: 440px) 100vw, 400px"
+      loading="eager"
+    />
+  </h1>
+
+  <figure class="zc-portrait">
+    <Image
+      src={portrait}
+      alt="Portrait of Zack LaChappelle"
+      widths={[320, 480, 640]}
+      sizes="320px"
+      loading="eager"
+    />
+  </figure>
+
+  <p class="zc-role">REALTOR<span aria-hidden="true">®</span> · Red 1 Realty</p>
+  <p class="zc-location">Marysville · Union County</p>
+
+  <div class="zc-actions">
+    <a class="zc-btn zc-btn--primary" href={`tel:${phone}`}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Zack
+    </a>
+    <a class="zc-btn zc-btn--dark" href={`sms:${phone}`}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Text Zack
+    </a>
+    <a class="zc-btn zc-btn--outline" href="/zack-lachappelle.vcf" download>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+      Save my contact
+    </a>
+  </div>
+
+  <ul class="zc-secondary" aria-label="More ways to reach Zack">
+    <li><a href={`mailto:${email}`} aria-label="Email Zack">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span>Email</span>
+    </a></li>
+    <li><a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zm0 3.064A4.971 4.971 0 1 1 12 17.03a4.971 4.971 0 0 1 0-9.942zm0 8.2a3.229 3.229 0 1 0 0-6.458 3.229 3.229 0 0 0 0 6.458zm6.406-8.845a1.161 1.161 0 1 1-2.322 0 1.161 1.161 0 0 1 2.322 0z"/></svg>
+      <span>Instagram</span>
+    </a></li>
+    <li><a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <span>Facebook</span>
+    </a></li>
+    <li><a href={website} aria-label="Website">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span>Website</span>
+    </a></li>
+  </ul>
+
+  <footer class="zc-footer">
+    <a class="zc-brokerage" href="/" aria-label="Red 1 Realty">
+      <Image src={logo} width={120} alt="Red 1 Realty" />
+    </a>
+    <p>Licensed REALTOR<span aria-hidden="true">®</span> in Ohio · Red 1 Realty</p>
+    <p>© {year} Zack LaChappelle · Equal Housing Opportunity</p>
+  </footer>
+</CardLayout>
+
+<style>
+  .zc-wordmark {
+    width: 100%;
+    margin: 0 0 1.5rem;
+    line-height: 0;
+  }
+  .zc-wordmark :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .zc-portrait {
+    margin: 0 0 1.25rem;
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 0 var(--line), 0 24px 44px -28px color-mix(in oklch, var(--ink) 55%, transparent);
+    background: var(--white);
+  }
+  .zc-portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .zc-portrait::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px var(--white), inset 0 0 0 5px color-mix(in oklch, var(--red) 90%, transparent);
+    pointer-events: none;
+  }
+
+  .zc-role {
+    margin: 0 0 0.25rem;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+  }
+  .zc-location {
+    margin: 0 0 2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .zc-actions {
+    width: 100%;
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .zc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-height: 58px;
+    padding: 0 1.25rem;
+    font-weight: 700;
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    transition: transform .2s var(--ease), background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .zc-btn:hover { transform: translateY(-2px); }
+  .zc-btn:active { transform: translateY(0); }
+
+  .zc-btn--primary { background: var(--red); color: var(--white); border-color: var(--red); }
+  .zc-btn--primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+  .zc-btn--dark { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .zc-btn--dark:hover { background: #000; }
+
+  .zc-btn--outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .zc-btn--outline:hover { background: var(--ink); color: var(--white); }
+
+  .zc-secondary {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .zc-secondary a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.85rem 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+  }
+  .zc-secondary a:hover {
+    color: var(--red);
+    border-color: var(--red);
+    background: color-mix(in oklch, var(--red) 6%, transparent);
+  }
+  .zc-secondary svg { color: currentColor; }
+
+  .zc-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    width: 100%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+  .zc-footer p { margin: 0.25rem 0; max-width: none; }
+  .zc-brokerage { display: inline-block; margin-bottom: 0.75rem; opacity: 0.8; }
+  .zc-brokerage :global(img) { width: 120px; height: auto; }
+</style>

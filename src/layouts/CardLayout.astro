@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import { Image, getImage } from 'astro:assets';
+import ogSource from '../assets/zack-portrait.webp';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const canonical = Astro.site ? new URL(path, Astro.site).toString() : path;
+const ogImage = await getImage({ src: ogSource, width: 1200, height: 1200, format: 'jpg' });
+const ogImageUrl = Astro.site ? new URL(ogImage.src, Astro.site).toString() : ogImage.src;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#171414" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Zack LaChappelle | Red 1 Realty" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <title>{title}</title>
+  </head>
+  <body class="card-body">
+    <main class="card-page"><slot /></main>
+  </body>
+</html>
+
+<style is:global>
+  body.card-body { background: var(--paper); }
+  .card-page {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(2rem, 6vw, 4rem) 1.25rem 2rem;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+</style>
